@@ -568,10 +568,24 @@ void WriteBrush(CBrush* brush)
 
 		for (int32_t v = 0; v < brush->m_brushSide[s].m_vertexCount; v++)
 		{
+			m_heapCollision->Append(brush->m_brushSide[s].m_shaderMaterial->m_surface);
+
+			m_heapCollision->Append((unsigned char*)&brush->m_brushSide[s].m_vertex[0].m_v.m_p, sizeof(CVec3f));
+
 			m_heapMap->Append(0);
+
 			v++;
+
+			m_heapCollision->Append((unsigned char*)&brush->m_brushSide[s].m_vertex[v].m_v.m_p, sizeof(CVec3f));
+
 			m_heapMap->Append(v);
+
 			v++;
+
+			m_heapCollision->Append((unsigned char*)&brush->m_brushSide[s].m_vertex[v].m_v.m_p, sizeof(CVec3f));
+
+			m_heapCollision->Append((unsigned char*)&brush->m_brushSide[s].m_center.m_v.m_n, sizeof(CVec3f));
+
 			m_heapMap->Append(v);
 
 			if (v == brush->m_brushSide[s].m_vertexCount - 1)
@@ -588,27 +602,6 @@ void WriteBrush(CBrush* brush)
 		for (int32_t v = 0; v < brush->m_brushSide[s].m_vertexCount; v++)
 		{
 			m_heapMap->Append((unsigned char*)&brush->m_brushSide[s].m_vertex[v].m_v, sizeof(CVertexNT));
-
-			m_heapCollision->Append(brush->m_brushSide[s].m_shaderMaterial->m_surface);
-
-			if (v == (brush->m_brushSide[s].m_vertexCount - 1))
-			{
-				m_heapCollision->Append((unsigned char*)&brush->m_brushSide[s].m_vertex[0].m_v.m_p, sizeof(CVec3f));
-				m_heapCollision->Append((unsigned char*)&brush->m_brushSide[s].m_vertex[v + 1].m_v.m_p, sizeof(CVec3f));
-				m_heapCollision->Append((unsigned char*)&brush->m_brushSide[s].m_vertex[1].m_v.m_p, sizeof(CVec3f));
-
-				m_heapCollision->Append((unsigned char*)&brush->m_brushSide[s].m_center.m_v.m_n, sizeof(CVec3f));
-
-				break;
-			}
-			else
-			{
-				m_heapCollision->Append((unsigned char*)&brush->m_brushSide[s].m_vertex[0].m_v.m_p, sizeof(CVec3f));
-				m_heapCollision->Append((unsigned char*)&brush->m_brushSide[s].m_vertex[v + 1].m_v.m_p, sizeof(CVec3f));
-				m_heapCollision->Append((unsigned char*)&brush->m_brushSide[s].m_vertex[v + 2].m_v.m_p, sizeof(CVec3f));
-
-				m_heapCollision->Append((unsigned char*)&brush->m_brushSide[s].m_center.m_v.m_n, sizeof(CVec3f));
-			}
 		}
 
 		fwrite(m_heapMap->m_heap, m_heapMap->m_length, 1, m_fMap);

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LocalDebuggerCommandArguments>"C:/Users/junk_/source/repos/Game/main/" "C:/Users/junk_/source/repos/Game/main/maps/Boxy.map"</LocalDebuggerCommandArguments>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerCommandArgumentsHistory>"C:/Users/junk_/source/repos/Game/main/" "C:/Users/junk_/source/repos/Game/main/maps/Bot.map"|"C:/Users/junk_/source/repos/Game/main/" "C:/Users/junk_/source/repos/Game/main/maps/Boxy.map"|</LocalDebuggerCommandArgumentsHistory>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LocalDebuggerCommandArguments>"C:/Users/junk_/source/repos/Game/" "C:/Users/junk_/source/repos/Game/main/maps/Boxy.map"</LocalDebuggerCommandArguments>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerCommandArgumentsHistory>"C:/Users/junk_/source/repos/Game/" "C:/Users/junk_/source/repos/Game/main/maps/Boxy.map"|"C:/Users/junk_/source/repos/Game/" "C:/Users/junk_/source/repos/Game/main/maps/Escort.map"|</LocalDebuggerCommandArgumentsHistory>
+  </PropertyGroup>
+</Project>

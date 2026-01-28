@@ -1,0 +1,7 @@
+.vs/*
+GameEnvironment
+x64/*
+*.exe
+*.dll
+*.txt
+*.bmp
